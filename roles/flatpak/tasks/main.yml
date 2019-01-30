@@ -1,0 +1,5 @@
+---
+- name: Install the flatpak packages from flathub for current user
+  flatpak:
+    name: "{{ flatpak.packages }}"
+    state: present

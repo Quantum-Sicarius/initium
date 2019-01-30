@@ -24,6 +24,7 @@
       state: present
       line: "{{ unit }}"
   when: run_on == "trusted" and user_unit is not defined
+  ignore_errors: True
 
 - name: Enable and start {{ unit }} for user
   systemd:

@@ -10,7 +10,33 @@
   when: "not gnome.gnome_shell.disable_top_left_hot_corner"
 
 - name: Configuring GNOME Shell Extensions support
-  pacman: name={{ item }} state={{ "present" if gnome.gnome_shell.extensions_support else "absent" }}
-  with_items:
-    - gnome-shell-extensions
-    - chrome-gnome-shell
+  pacman: 
+    name: ['gnome-shell-extensions', 'chrome-gnome-shell'] 
+    state: "{{ 'present' if gnome.gnome_shell.extensions_support else 'absent' }}"
+
+- name: Download GNOME Shell extensions
+  get_url:
+    url: "{{ item.url }}"
+    dest: "/tmp/{{ item.name }}.zip"
+  with_items: "{{ gnome_extensions|default([]) }}"
+  tags:
+    - extensions
+
+- name: Create GNOME extension directories
+  file:
+    path: /home/{{ user.name }}/.local/share/gnome-shell/extensions/{{ item.name }}
+    state: directory
+  become_user: "{{ user.name }}"
+  with_items: "{{ gnome_extensions|default([]) }}"
+  tags:
+    - extensions
+
+- name: Unzip GNOME extensions
+  unarchive:
+    src: "/tmp/{{ item.name }}.zip"
+    dest: "/home/{{ user.name }}/.local/share/gnome-shell/extensions/{{ item.name }}"
+    remote_src: yes
+  become_user: "{{ user.name }}"
+  with_items: "{{ gnome_extensions|default([])}}"
+  tags:
+    - extensions

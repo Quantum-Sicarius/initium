@@ -10,3 +10,4 @@
 - name: Enable and start weekly filesystem TRIM timer
   service: name=fstrim.timer enabled=yes state=started
   when: "hdparm.rc == 0"
+  ignore_errors: True
