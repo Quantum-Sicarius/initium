@@ -49,7 +49,7 @@
   systemd:
       name: "{{ unit }}"
       enabled: no
-      user: yes
+      scope: user
   become: yes
   become_user: "{{ user.name }}"
   environment:

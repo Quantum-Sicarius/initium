@@ -1,109 +1,109 @@
 user:
-    name: thomas
-    uid: 1000
-    group: thomas
-    shell: /usr/bin/zsh
-    email:  thomas@cerberus.za.net
-    log:
-        dir: log
-        rotate: 8
+  name: thomas
+  uid: 1000
+  group: thomas
+  shell: /usr/bin/zsh
+  email: thomas@cerberus.za.net
+  log:
+    dir: log
+    rotate: 8
 
 hostname: skywalker
 
 dotfiles:
-    url: git@github.com:quantum-sicarius/dotfiles.git
-    destination: projects/dotfiles
-    rcup_flags: -fx README.md
-    ignore_errors: yes
+  url: git@github.com:quantum-sicarius/dotfiles.git
+  destination: projects/dotfiles
+  rcup_flags: -fx README.md
+  ignore_errors: yes
 
 aur:
-    dir: aur
-    packages:
-        - yay
-        - downgrade
-        - zplug
-        - miller
-        - myrepos
-        - ctmg
+  dir: aur
+  packages:
+    - yay
+    - downgrade
+    - zplug
+    - miller
+    - myrepos
+    - ctmg
 
 ssh:
-    port: 22
-    # user_key: /root/id_rsa
-    enable_sshd: False
+  port: 22
+  # user_key: /root/id_rsa
+  enable_sshd: False
 
 gnupg:
-    enable_agent: True
-    emulate_ssh: True
+  enable_agent: True
+  emulate_ssh: True
 
 mail:
-    sync_tool: isync
-    sync_pim: True
-    sync_taskwarrior: True
-    sync_time: 5min
-    sync_boot_delay: 2min
-    sync_on: trusted
+  sync_tool: isync
+  sync_pim: True
+  sync_taskwarrior: True
+  sync_time: 5min
+  sync_boot_delay: 2min
+  sync_on: trusted
 
 network:
-    spoof_mac: False
-    conn_check:
-        interval: 0
-    trusted_uuid:
-        - d4b8cc5e-924b-472d-9f4a-f16b629c6b82
+  spoof_mac: False
+  conn_check:
+    interval: 0
+  trusted_uuid:
+    - d4b8cc5e-924b-472d-9f4a-f16b629c6b82
 
 editors:
-    - nano
+  - nano
 
 video_drivers:
-    - libva-intel-driver
+  - libva-intel-driver
 
 base_packages:
-    - base-devel
-    - pacman-contrib
-    - fwupd
-    - dmidecode
-    - tmux
-    - git
-    - rsync
-    - glances
-    - coreutils
-    - moreutils
-    - dateutils
-    - bc
-    - ranger
-    - strace
-    - lsof
-    - sysstat
-    - arch-wiki-lite
-    - arch-wiki-docs
-    - python-keyring
-    - python-secretstorage
-    - tig
-    - ruby
-    - pv
-    - minicom
-    - jq
-    - python-docs
-    - python2-docs
-    - screen
-    - units
-    - python-pipenv
+  - base-devel
+  - pacman-contrib
+  - fwupd
+  - dmidecode
+  - tmux
+  - git
+  - rsync
+  - glances
+  - coreutils
+  - moreutils
+  - dateutils
+  - bc
+  - ranger
+  - strace
+  - lsof
+  - sysstat
+  - arch-wiki-lite
+  - arch-wiki-docs
+  - python-keyring
+  - python-secretstorage
+  - tig
+  - ruby
+  - pv
+  - minicom
+  - jq
+  - python-docs
+  - python2-docs
+  - screen
+  - units
+  - python-pipenv
 
 filesystem_packages:
-    - dosfstools
-    - ntfs-3g
-    - exfat-utils
+  - dosfstools
+  - ntfs-3g
+  - exfat-utils
 
 browser_choices:
-    - firefox -P default
-    - firefox -P work
-    - firewarden chromium
-    - tor-browser-en
-    - play
-    - qcode
-    - "| xclip -selection c"
+  - firefox -P default
+  - firefox -P work
+  - firewarden chromium
+  - tor-browser-en
+  - play
+  - qcode
+  - "| xclip -selection c"
 
 passwordless_sudo:
-    - /usr/bin/openvpn*
+  - /usr/bin/openvpn*
 
 # tarsnapper:
 #   deltas: 1h 1d 7d 30d 365d
@@ -128,124 +128,123 @@ bootloader: grub
 fingerprint: False
 
 tor:
-    run_on: trusted
+  run_on: trusted
 
 localtime:
-    run_on: trusted
+  run_on: trusted
 
 unbound:
-    tls: True
-    nameservers:
-        - 1.1.1.1@853  # Cloudflare
-        - 9.9.9.9@853  # Quad9
+  tls: True
+  nameservers:
+    - 1.1.1.1@853 # Cloudflare
+    - 9.9.9.9@853 # Quad9
 
 bluetooth:
-    disable: False
+  disable: False
 
 firejail:
-    blacklist:
-        - ~/.calendars
-        - ~/.config/vdirsyncer
-        - ~/.contacts
-        - ~/.keys
-        - ~/.mbsyncrc
-        - ~/.offlineimap
-        - ~/.offlineimaprc
-        - ~/.password-store
-        - ~/.vdirsyncer
-        - ~/library
+  blacklist:
+    - ~/.calendars
+    - ~/.config/vdirsyncer
+    - ~/.contacts
+    - ~/.keys
+    - ~/.mbsyncrc
+    - ~/.offlineimap
+    - ~/.offlineimaprc
+    - ~/.password-store
+    - ~/.vdirsyncer
+    - ~/library
 
 journal:
-    max_size: 500M
+  max_size: 500M
 
 udisks:
-    auto_mount: False
-    shared_mount: True
+  auto_mount: False
+  shared_mount: True
 
 hostsctl:
-    url: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-porn/hosts
-
+  url: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-porn/hosts
 
 libinput:
-    #middle_click_scroll: 12
-    #button_mapping: "1 2 3 4 5 6 7 8 9 10 11 2"
+  #middle_click_scroll: 12
+  #button_mapping: "1 2 3 4 5 6 7 8 9 10 11 2"
 
 display_manager: gdm
 gdm:
-    sound: False
-    font_scaling_factor: 1
-    logo_path: False
-    touchpad:
-        tap_to_click: True
-    accessibility_menu: True
+  sound: False
+  font_scaling_factor: 1
+  logo_path: False
+  touchpad:
+    tap_to_click: True
+  accessibility_menu: True
 
 desktop_environment: gnome
 gnome:
-    night_light:
-        enabled: True
-        color_temperature: 4000 # in Kelvin
-    date_time:
-        show_date_in_clock: True
-        show_weeks_in_calendar: True
-    battery:
-        show_percentage: True
-    power:
-        sleep_timeout_when_computer_on_ac: 3600 # in seconds
-        timeout_action_when_computer_on_ac: suspend
-        sleep_timeout_when_computer_on_battery: 1800 # in seconds
-        timeout_action_when_computer_on_battery: suspend
-        power_button_action: suspend
-    touchpad:
-        tap_to_click: True
-        natural_scrolling: True
-        disabled_while_typing: True
-    online_accounts_support: True
-    lock_screen:
-        automatic_lock: True
-        lock_screen_after_blank_for: 0 # in seconds
-        show_notifications: False
-        show_full_name_of_user: True
-    theme:
-        theme_name: Arc-Dark
-        icon_theme_name: Papirus-Dark
-        font_name: Dejavu Sans 13
-        dark_variant: True
-    gnome_shell:
-        disable_top_left_hot_corner: False
-        extensions_support: True
-        gnome_extensions:
-            - url: "https://extensions.gnome.org/download-extension/blyr@yozoon.dev.gmail.com.v5.shell-extension.zip"
-              name: "blyr@yozoon.dev.gmail.com"
-            - url: "https://extensions.gnome.org/download-extension/openweather-extension@jenslody.de.v97.shell-extension.zip"
-              name: "openweather-extension@jenslody.de"
+  night_light:
+    enabled: True
+    color_temperature: 4000 # in Kelvin
+  date_time:
+    show_date_in_clock: True
+    show_weeks_in_calendar: True
+  battery:
+    show_percentage: True
+  power:
+    sleep_timeout_when_computer_on_ac: 3600 # in seconds
+    timeout_action_when_computer_on_ac: suspend
+    sleep_timeout_when_computer_on_battery: 1800 # in seconds
+    timeout_action_when_computer_on_battery: suspend
+    power_button_action: suspend
+  touchpad:
+    tap_to_click: True
+    natural_scrolling: True
+    disabled_while_typing: True
+  online_accounts_support: True
+  lock_screen:
+    automatic_lock: True
+    lock_screen_after_blank_for: 0 # in seconds
+    show_notifications: False
+    show_full_name_of_user: True
+  theme:
+    theme_name: Arc-Dark
+    icon_theme_name: Papirus-Dark
+    font_name: Dejavu Sans 13
+    dark_variant: True
+  gnome_shell:
+    disable_top_left_hot_corner: False
+    extensions_support: True
+    gnome_extensions:
+      - url: "https://extensions.gnome.org/download-extension/blyr@yozoon.dev.gmail.com.v5.shell-extension.zip"
+        name: "blyr@yozoon.dev.gmail.com"
+      - url: "https://extensions.gnome.org/download-extension/openweather-extension@jenslody.de.v97.shell-extension.zip"
+        name: "openweather-extension@jenslody.de"
 
 base_fonts:
-    - terminus-font
-    - cantarell-fonts
-    - noto-fonts
-    - ttf-dejavu
-    - ttf-liberation
-    - ttf-symbola
-    - gsfonts
-    - tex-gyre-fonts
-    - ttf-droid
-    - ttf-ubuntu-font-family
-    - ttf-inconsolata
+  - terminus-font
+  - cantarell-fonts
+  - noto-fonts
+  - ttf-dejavu
+  - ttf-liberation
+  - ttf-symbola
+  - gsfonts
+  - tex-gyre-fonts
+  - ttf-droid
+  - ttf-ubuntu-font-family
+  - ttf-inconsolata
 
 aur_fonts:
-    - ttf-signika
-    - ttf-quintessential
-    - ttf-oswald
-    - ttf-opensans
-    - ttf-merriweather-sans
-    - ttf-merriweather
-    - ttf-carlito
-    - ttf-caladea
-    - ttf-courier-prime
-    - ttf-heuristica
+  - ttf-signika
+  - ttf-quintessential
+  - ttf-oswald
+  - ttf-opensans
+  - ttf-merriweather-sans
+  - ttf-merriweather
+  - ttf-carlito
+  - ttf-caladea
+  - ttf-courier-prime
+  - ttf-heuristica
 
 syncthing:
-    run_on: trusted
+  run_on: trusted
 
 mirrorlist:
   run_on: trusted
@@ -253,11 +252,12 @@ mirrorlist:
 kernel_parameters: "consoleblank=60 i915.enable_psr=2"
 
 flatpak:
-    packages:
-        - com.valvesoftware.Steam
+  packages:
+    - com.valvesoftware.Steam
 
 docker:
-    docker_service_state: started
-    docker_service_enabled: true
-    docker_restart_handler_state: restarted
-    docker_users: "{{ user.name }}"
+  docker_edition: "ce"
+  docker_service_state: started
+  docker_service_enabled: true
+  docker_restart_handler_state: restarted
+  docker_users: "{{ user.name }}"
