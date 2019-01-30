@@ -6,7 +6,7 @@
     - { role: gnupg, tags: ['gnupg'] }
     - { role: cron, tags: ['cron'] }
     - { role: microcode, tags: ['microcode'], when: "'GenuineIntel' in ansible_processor" }
-    - { role: hardened, tags: ['hardened'] }
+    - { role: hardened, tags: ['hardened'], when: "hardened is defined" }
     - { role: ssh, tags: ['ssh'] }
     - { role: dotfiles, tags: ['dotfiles'] }
     - { role: ssd, tags: ['ssd'] }
@@ -41,18 +41,18 @@
     - { role: thinkpad, tags: ['thinkpad'], when: "'ThinkPad' in ansible_product_version" }
     - { role: macbook, tags: ['macbook'], when: "'MacBook' in ansible_product_name" }
     - { role: screensaver, tags: ['screensaver'] }
-    - { role: bitlbee, tags: ['bitlbee'] }
-    - { role: weechat, tags: ['weechat'] }
+    - { role: bitlbee, tags: ['bitlbee'], when: "bitlbee is defined"}
+    - { role: weechat, tags: ['weechat'], when: "weechat is defined"}
     - { role: git-annex, tags: ['git-annex'], when: "gitannex is defined" }
-    - { role: taskwarrior, tags: ['taskwarrior'] }
+    # - { role: taskwarrior, tags: ['taskwarrior'] }
     - { role: ledger, tags: ['ledger'] }
     - { role: mail, tags: ['mail'] }
     - { role: cups, tags: ['cups'] }
     - { role: office, tags: ['office'] }
-    - { role: redshift, tags: ['redshift'] }
-    - { role: rtorrent, tags: ['rtorrent'] }
-    - { role: virtualbox, tags: ['virtualbox'] }
-    - { role: hashicorp, tags: ['hashicorp'] }
+    # - { role: redshift, tags: ['redshift'] }
+    # - { role: rtorrent, tags: ['rtorrent'] }
+    - { role: virtualbox, tags: ['virtualbox'], when: "virtualbox is defined" }
+    - { role: hashicorp, tags: ['hashicorp'], when: "hashicorp is defined" }
     - { role: virtualenv, tags: ['virtualenv'] }
     - { role: backitup, tags: ['backitup'] }
     - { role: cryptshot, tags: ['cryptshot'], when: "cryptshot is defined" }
@@ -63,9 +63,9 @@
     - { role: pim, tags: ['pim'] }
     - { role: radio, tags: ['radio'] }
     - { role: formd, tags: ['formd'] }
-    - { role: postgresql, tags: ['postgresql'] }
-    - { role: calibre, tags: ['calibre'] }
-    - { role: aws, tags: ['aws'] }
+    - { role: postgresql, tags: ['postgresql'], when: "postgresql is defined" }
+    # - { role: calibre, tags: ['calibre'] }
+    # - { role: aws, tags: ['aws'] }
     - { role: parcimonie, tags: ['parcimonie'], when: "tor is defined" }
     - { role: localtime, tags: ['localtime'], when: "localtime is defined" }
     - { role: wormhole, tags: ['wormhole'] }
@@ -73,10 +73,10 @@
     - { role: wttr, tags: ['wttr'] }
     - { role: hostsctl, tags: ['hostsctl'], when: "hostsctl is defined" }
     - { role: himawaripy, tags: ['himawaripy'], when: "himawaripy is defined" }
-    - { role: kiwix, tags: ['kiwix'] }
+    # - { role: kiwix, tags: ['kiwix'] }
     - { role: syncthing, tags: ['syncthing'], when: "syncthing is defined" }
     - { role: mirrorlist, tags: ['mirrorlist'], when: "mirrorlist is defined" }
-    - { role: logitech, tags: ['logitech'] }
+    # - { role: logitech, tags: ['logitech'] }
   vars_prompt:
     - name: user_password
       prompt: "Enter desired user password"
