@@ -25,6 +25,9 @@ aur:
     - miller
     - myrepos
     - ctmg
+    - maint
+    - visual-studio-code-bin
+    - jdk
 
 ssh:
   port: 22
